@@ -11,7 +11,7 @@ Run `npm ci`, `npm run check`, then `npm run build`. `npm run dev` starts a loca
 Target: https://headphonejames.github.io/guild-of-harwich-preview/
 Repository: https://github.com/headphonejames/guild-of-harwich-preview
 
-The workflow checks and builds the static site, uploads its artifact, and deploys using GitHub’s Pages action. Repository Settings → Pages must use GitHub Actions. A push to main triggers deployment. The repository is initially private; Pages activation is blocked by the current account plan. Public-source approval or a supported account plan is required before activation. This target URL is not yet a confirmed deployment.
+The workflow checks and builds the static site, uploads its artifact, and deploys using GitHub’s Pages action. Repository Settings → Pages must use GitHub Actions. A push to main triggers deployment. The user approved public source visibility for this dedicated preview repository. GitHub Pages is configured with GitHub Actions; the workflow checks, builds and publishes changes to main. See the Actions run for the current deployment result.
 
 All internal links and public images use `src/data/urls.ts`, which applies Astro’s configured base path. No production domain, DNS, CNAME or WordPress configuration is changed. Preview remains noindexed.
 
