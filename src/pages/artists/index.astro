@@ -1,0 +1,6 @@
+---
+import {localUrl} from '../../data/urls';
+import Layout from '../../layouts/Layout.astro';
+import {artists,source} from '../../data/content';
+---
+<Layout title="Meet the artists"><section class="wrap page-intro"><p class="eyebrow">LOCAL ART. INDIVIDUAL PERSPECTIVES.</p><h1>The people<br/><em>behind the paintings.</em></h1><p class="lede">Meet three of the Guild’s artists and explore the work that brings our community to life.</p></section><section class="wrap section"><div class="artist-grid">{artists.map(a=><a class="artist-card" href={localUrl(`/artists/${a.slug}/`)}><div class="art-preview"><img src={localUrl(a.image)} alt={a.alt}/></div><div class="card-title"><h2>{a.name}</h2><span>↗</span></div><p>{a.work} / {a.medium}</p></a>)}</div><p class="note">This first collection introduces three artists from the public Guild website. <a href={source+'/art-gallery/'}>Explore the Guild’s full gallery and artist links ↗</a></p></section></Layout>

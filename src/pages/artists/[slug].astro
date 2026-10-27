@@ -1,0 +1,8 @@
+---
+import {localUrl} from '../../data/urls';
+import Layout from '../../layouts/Layout.astro';
+import {artists} from '../../data/content';
+export function getStaticPaths(){return artists.map(artist=>({params:{slug:artist.slug},props:{artist}}));}
+const {artist}=Astro.props;
+---
+<Layout title={artist.name}><section class="wrap artist-detail"><a class="text-link" href={localUrl('/artists/')}>← All featured artists</a><div class="detail-grid"><figure><img src={localUrl(artist.image)} alt={artist.alt}/><figcaption><i>{artist.work}</i> · {artist.medium}<br/>Artwork © {artist.name}</figcaption></figure><div><p class="eyebrow">A GUILD ARTIST</p><h1>{artist.name}</h1><p class="lede">{artist.bio}</p><a class="button" href={artist.source}>Full artist biography <span>↗</span></a><p class="note">Biography adapted from the artist’s public Guild profile. For current work and availability, contact the gallery.</p><a class="text-link" href={localUrl('/visit/')}>Find us in Harwich Port →</a></div></div></section></Layout>

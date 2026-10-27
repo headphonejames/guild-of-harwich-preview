@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+docs/screenshots/
+docs/public-source-snapshots/
+.env
+.env.*
+*.log

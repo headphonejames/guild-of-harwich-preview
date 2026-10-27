@@ -1,0 +1,10 @@
+export const source = 'https://guildofharwichartists.org';
+export const artists = [
+ {slug:'chris-banks',name:'Chris Banks',work:'Path to the Sound',medium:'24 × 30 inches',image:'/images/banks.jpeg',alt:'A sandy path through flowering dunes leads to the blue sea in Chris Banks’ Path to the Sound.',bio:'Chris Banks began studying decorative art in 1978 and joined the Guild after moving to Harwich in 2002. Her practice includes oils, acrylics and watercolor, alongside a long history of teaching and serving the local arts community.',source:source+'/chris-banks/'},
+ {slug:'larry-folding',name:'Larry Folding',work:'Winter Warmth',medium:'Watercolor',image:'/images/folding.jpg',alt:'Sunlight falls through dark trees onto snow in Larry Folding’s watercolor Winter Warmth.',bio:'Larry Folding completed his first watercolor in 1965. His training includes a three-year extension course at Rhode Island School of Design and workshops with watercolor artists in New England and Europe. He is a signature member of the New England Watercolor Society.',source:source+'/larry-folding/'},
+ {slug:'martha-little-fuentes',name:'Martha Little Fuentes',work:'Ernesto',medium:'Figurative painting',image:'/images/fuentes.jpeg',alt:'Ernesto, a figurative painting by Martha Little Fuentes.',bio:'Martha Little Fuentes explores emotion through expression and gesture. She graduated from Vesper George School of Art in Boston and studied fine art at Bella’s Artes and the Instituto Allende in Mexico. Her work is featured at the Guild’s Art Gallery.',source:source+'/martha-little-fuentes/'}
+];
+export const news = [
+ {date:'August 25, 2026',title:'Art for Good: Larry Folding’s watercolor auction',text:'The Guild announced an August 31 silent auction at Doane Park, with part of the proceeds benefiting the Harwich Family Pantry.',href:source+'/silent-auction-of-award-winning-watercolor-artist-larry-folding/'},
+ {date:'July 1, 2026',title:'Art-in-the-Park returns to Doane Park',text:'A summer tradition brings original art and local artists together in the heart of Harwich Port.',href:source+'/guilds-art-in-the-park-launches-2026-season/'}
+];
