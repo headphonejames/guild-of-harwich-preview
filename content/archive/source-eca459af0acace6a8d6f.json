@@ -1,0 +1,27 @@
+{
+  "title": "Artist Demo 3",
+  "slug": "source-eca459af0acace6a8d6f",
+  "status": "published",
+  "paragraphs": [],
+  "excerpt": "",
+  "seoTitle": "",
+  "seoDescription": "",
+  "sourceId": "media-7468",
+  "sourceUrl": "https://guildofharwichartists.org/event/guild-monthly-general-meeting/2026-09-12/artist-demo-3/",
+  "sourceFetchedAt": "2026-10-28T01:01:58.309236+00:00",
+  "bodyHtml": "<figure><a href=\"/media/archive/45b50a7683d0a5142fb6ae3b32823c49ae5c231f5ff783bccb453d16e0849583.jpg\"><img src=\"/media/archive/45b50a7683d0a5142fb6ae3b32823c49ae5c231f5ff783bccb453d16e0849583.jpg\" alt=\"\" loading=\"lazy\" /></a><figcaption></figcaption></figure>",
+  "provenanceId": "source-eca459af0acace6a8d6f",
+  "kind": "media-attachment",
+  "originalTitle": "Artist Demo 3",
+  "originalPublishedAt": "",
+  "sourceIds": [
+    "media-7468"
+  ],
+  "wpIds": [
+    7468
+  ],
+  "primaryPath": "",
+  "qualification": "Original source page returned 404; reconstructed from public REST metadata",
+  "issues": [],
+  "functionalGaps": []
+}

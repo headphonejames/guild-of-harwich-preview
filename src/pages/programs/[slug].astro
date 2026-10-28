@@ -1,0 +1,6 @@
+---
+import {getCollection} from 'astro:content';import ContentPage from '../../components/ContentPage.astro';
+export async function getStaticPaths(){return (await getCollection('programs')).filter(x=>x.data.status==='published').map(x=>({params:{slug:x.data.slug},props:{item:x.data}}));}
+const {item}=Astro.props;
+---
+<ContentPage item={item}/>

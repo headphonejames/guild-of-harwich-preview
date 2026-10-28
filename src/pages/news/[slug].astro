@@ -1,0 +1,7 @@
+---
+import RichContent from '../../components/RichContent.astro';
+import Layout from '../../layouts/Layout.astro';import {loadNews} from '../../data/content';import {localUrl} from '../../data/urls';
+export async function getStaticPaths(){return (await loadNews()).map(item=>({params:{slug:item.slug},props:{item}}));}
+const {item}=Astro.props;
+---
+<Layout title={item.seoTitle||item.title} description={item.seoDescription||item.excerpt||undefined}><article class="wrap page-intro article"><a class="text-link" href={localUrl('/news/')}>← News archive</a><p class="eyebrow">{item.date} · ARCHIVE</p><h1>{item.title}</h1><RichContent html={item.bodyHtml} paragraphs={item.paragraphs}/><p class="note">This is an archived announcement. Dates, availability and contact information may have changed.</p></article></Layout>

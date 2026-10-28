@@ -1,8 +1,5 @@
 ---
-import {localUrl} from '../../data/urls';
-import Layout from '../../layouts/Layout.astro';
-import {artists} from '../../data/content';
-export function getStaticPaths(){return artists.map(artist=>({params:{slug:artist.slug},props:{artist}}));}
-const {artist}=Astro.props;
+import Layout from '../../layouts/Layout.astro';import RichContent from '../../components/RichContent.astro';import {localUrl} from '../../data/urls';import {loadArtistProfiles} from '../../data/content';
+export async function getStaticPaths(){return (await loadArtistProfiles()).map(artist=>({params:{slug:artist.slug},props:{artist}}));}const {artist}=Astro.props;
 ---
-<Layout title={artist.name}><section class="wrap artist-detail"><a class="text-link" href={localUrl('/artists/')}>← All featured artists</a><div class="detail-grid"><figure><img src={localUrl(artist.image)} alt={artist.alt}/><figcaption><i>{artist.work}</i> · {artist.medium}<br/>Artwork © {artist.name}</figcaption></figure><div><p class="eyebrow">A GUILD ARTIST</p><h1>{artist.name}</h1><p class="lede">{artist.bio}</p><a class="button" href={artist.source}>Full artist biography <span>↗</span></a><p class="note">Biography adapted from the artist’s public Guild profile. For current work and availability, contact the gallery.</p><a class="text-link" href={localUrl('/visit/')}>Find us in Harwich Port →</a></div></div></section></Layout>
+<Layout title={artist.seoTitle||artist.name} description={artist.seoDescription||artist.excerpt||undefined}><article class="wrap page-intro archive-article"><a class="text-link" href={localUrl(artist.status==='archived'?'/artists/historical/':'/artists/')}>← Artists</a><h1>{artist.name}</h1>{artist.status==='archived'&&<p class="archive-notice">Historical or unverified biography. This profile is not evidence of current Guild membership.</p>}{artist.bodyHtml?<RichContent html={artist.bodyHtml}/>:<><div class="artist-grid">{artist.images.map(i=><figure><img src={localUrl(i.localPath)} alt={i.alt||artist.name}/><figcaption>{i.caption}</figcaption></figure>)}</div><RichContent paragraphs={artist.paragraphs}/></>}<p class="note">For current work and availability, contact the gallery. <a class="text-link" href={localUrl('/artworks/')}>Artwork catalogue →</a></p></article></Layout>

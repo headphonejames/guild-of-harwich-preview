@@ -1,0 +1,6 @@
+---
+import RichContent from '../../components/RichContent.astro';
+import Layout from '../../layouts/Layout.astro';import {loadEvents} from '../../data/content';import {localUrl} from '../../data/urls';
+export async function getStaticPaths(){return (await loadEvents()).map(e=>({params:{slug:e.slug},props:{event:e}}));}const {event:e}=Astro.props;
+---
+<Layout title={e.seoTitle||e.title} description={e.seoDescription||e.excerpt||undefined}><article class="wrap page-intro article"><a class="text-link" href={localUrl('/calendar/')}>← Calendar</a><p class="eyebrow">{e.start.slice(0,10)} · {e.timezone}</p><h1>{e.title}</h1><p>{e.allDay?'All day':`${e.start.slice(11,16)}–${e.end.slice(11,16)}`} · {e.venue} · {e.cost}</p><RichContent html={e.bodyHtml} paragraphs={e.paragraphs}/>{e.scheduleQuality==='source-consistent'&&<p class="note">Imported schedule; confirm with the Guild before attending.</p>}<a class="button" href={localUrl('/calendar/guild.ics')}>Download Guild calendar</a></article></Layout>

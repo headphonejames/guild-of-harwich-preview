@@ -1,0 +1,5 @@
+---
+import {sanitizeRichHtml} from '../data/rich-html.mjs';
+const {html='',paragraphs=[]}=Astro.props;const base=import.meta.env.BASE_URL.replace(/\/$/,'');
+---
+{html?<div class="rich-content" set:html={sanitizeRichHtml(html,base)}/>:<div class="source-prose">{paragraphs.map((p:string)=><p>{p}</p>)}</div>}

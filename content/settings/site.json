@@ -1,0 +1,28 @@
+{
+  "title": "Guild of Harwich Artists",
+  "introduction": [
+    "Established in 1979, the Guild of Harwich Artists has become a vital member of the growing local arts and cultural fabric for which the Cape Cod town of Harwich is becoming known. Over the years it has been art that brings us together, but it is our supportive community of established and emerging artists that binds us together. Membership is open to all Cape Cod residents.",
+    "Celebrating its 47th year, The Guild of Harwich Artists, Inc. is a non-profit 501(c)3 organization that encourages artists and those interested in art through education, fellowship, and exhibitions, and to engage in charitable works that benefit Harwich residents."
+  ],
+  "navigation": [
+    {
+      "label": "The artists",
+      "path": "/artists/"
+    },
+    {
+      "label": "Visit the gallery",
+      "path": "/visit/"
+    },
+    {
+      "label": "Calendar",
+      "path": "/calendar/"
+    },
+    {
+      "label": "Our Guild",
+      "path": "/join/"
+    }
+  ],
+  "address": "551 Main Street (Route 28), Harwich Port, MA 02646",
+  "phone": "(508) 432-1012",
+  "email": "info@guildofharwichartists.org"
+}

@@ -1,0 +1,6 @@
+---
+import Layout from '../../layouts/Layout.astro';import EventList from '../../components/EventList.astro';import {loadEvents} from '../../data/content';import {localUrl} from '../../data/urls';
+export async function getStaticPaths(){const events=await loadEvents();return [...new Set(events.map(e=>e.start.slice(0,7)))].map(month=>({params:{month},props:{events:events.filter(e=>e.start.startsWith(month)),month}}));}
+const {events,month}=Astro.props;const [y,m]=month.split('-').map(Number);const count=new Date(Date.UTC(y,m,0)).getUTCDate();const offset=new Date(Date.UTC(y,m-1,1)).getUTCDay();
+---
+<Layout title={`Calendar · ${month}`}><section class="wrap page-intro"><a class="text-link" href={localUrl('/calendar/')}>← Calendar</a><h1>{month}</h1><div class="month-grid" aria-label={`Calendar for ${month}`}>{['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=><strong>{d}</strong>)}{Array.from({length:offset},()=> <div aria-hidden="true"/>)}{Array.from({length:count},(_,i)=><div class="day"><span>{i+1}</span>{events.filter(e=>Number(e.start.slice(8,10))===i+1).map(e=><a href={localUrl(`/events/${e.slug}/`)}>{e.title}</a>)}</div>)}</div></section><section class="wrap section"><h2>Event list</h2><EventList events={events}/></section></Layout>

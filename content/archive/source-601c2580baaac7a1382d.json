@@ -1,0 +1,27 @@
+{
+  "title": "About",
+  "slug": "source-601c2580baaac7a1382d",
+  "status": "published",
+  "paragraphs": [],
+  "excerpt": "",
+  "seoTitle": "",
+  "seoDescription": "",
+  "sourceId": "wp-15",
+  "sourceUrl": "https://guildofharwichartists.org/home-page/about/",
+  "sourceFetchedAt": "2026-10-28T00:57:30.420020+00:00",
+  "bodyHtml": "\n\n\t\n\t\t\n\n\t\t<div class=\"entry-content\">\n\t\t\t\t\t<div class=\"elementor elementor-15\">\n\t\t\t\t<div class=\"elementor-element elementor-element-b15bfae e-con e-atomic-element e-flexbox-base e-default-div \">\n    \t\t\t<img class=\"e-image-base e-default-img e-95433ad-5cd61f6\" src=\"/media/archive/efcfe13637456ba6ec5180e5893c3c93a464e19896315222c8f5ae21a607722c.svg\" alt=\"\" loading=\"lazy\" />\t\t\n</div>\n<div class=\"elementor-element elementor-element-22cd5e7 e-flex e-con-boxed e-con e-parent\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t\t\t<div class=\"elementor-element elementor-element-ea65dd6 elementor-widget elementor-widget-text-editor\">\n\t\t\t\t\t\t\t\t\t<p><img class=\"aligncenter size-medium wp-image-7424\" src=\"/media/archive/91f6f75ba8567bf8bb3f57a7d86f2f1fd8f272e3a757e598ce99f50b44ad83fd.jpg\" alt=\"\" width=\"300\" height=\"230\" loading=\"lazy\" /></p>\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t<div class=\"elementor-element elementor-element-b339a4a e-flex e-con-boxed e-con e-parent\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t\t\t<div class=\"elementor-element elementor-element-463952d elementor-widget elementor-widget-text-editor\">\n\t\t\t\t\t\t\t\t\t<p><a href=\"/media/archive/ac4a5b2cd59c4a78b4b8231294f9dba9b877c44da3f9ea309eaadda998e074da.pdf\">2026 Officers and Executive Board Members</a></p>\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t<div class=\"elementor-element elementor-element-fbc1d32 e-con e-atomic-element e-flexbox-base e-default-div \">\n    \t\t\t<p class=\"e-paragraph-base e-default-p\"></p>\n\t\t\n</div>\n\t\t</div>\n\t\t\n\n\t\t\t\t\t</div>\n\n\t\t<footer class=\"entry-footer\">\n\t\t\t\t\t</footer>\n\n\t\n",
+  "provenanceId": "source-601c2580baaac7a1382d",
+  "kind": "page",
+  "originalTitle": "About",
+  "originalPublishedAt": "2015-07-13T15:56:40",
+  "sourceIds": [
+    "wp-15"
+  ],
+  "wpIds": [
+    15
+  ],
+  "primaryPath": "/pages/about/",
+  "qualification": "Archived public source content",
+  "issues": [],
+  "functionalGaps": []
+}

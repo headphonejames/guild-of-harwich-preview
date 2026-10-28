@@ -1,0 +1,27 @@
+{
+  "title": "My Bookings",
+  "slug": "source-00afa51aebe38f11625c",
+  "status": "published",
+  "paragraphs": [],
+  "excerpt": "",
+  "seoTitle": "",
+  "seoDescription": "",
+  "sourceId": "wp-4905",
+  "sourceUrl": "https://guildofharwichartists.org/my-bookings/",
+  "sourceFetchedAt": "2026-10-28T00:58:23.837028+00:00",
+  "bodyHtml": "\n\n\t\n\t\t\n\n\t\t<div class=\"entry-content\">\n\t\t\t<div id=\"em-wrapper\"><p></p><div class=\"css-my-bookings\">\t<p>Please <a title=\"Archived control; this function is not available here\" href>Log In</a><span data-fidelity-note=\"functional\" class=\"note\"> (archived control)</span> to view your bookings.</p>\n</div><p></p>\n<p>Powered by <a href=\"https://wp-events-plugin.com\" target=\"_blank\" rel=\"noopener noreferrer\">Events Manager</a></p></div>\n\n\t\t\t\t\t</div>\n\n\t\t<footer class=\"entry-footer\">\n\t\t\t\t\t</footer>\n\n\t\n",
+  "provenanceId": "source-00afa51aebe38f11625c",
+  "kind": "page",
+  "originalTitle": "My Bookings",
+  "originalPublishedAt": "2020-05-06T21:21:16",
+  "sourceIds": [
+    "wp-4905"
+  ],
+  "wpIds": [
+    4905
+  ],
+  "primaryPath": "",
+  "qualification": "Archived public source content",
+  "issues": [],
+  "functionalGaps": []
+}

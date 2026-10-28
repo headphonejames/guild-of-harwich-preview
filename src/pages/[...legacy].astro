@@ -1,0 +1,10 @@
+---
+import redirects from '../../content/redirects.json';import {getCollection} from 'astro:content';import {localUrl} from '../data/urls';
+export async function getStaticPaths(){
+ const used=new Set(['/','/artists/','/artists/historical/','/news/','/visit/','/join/','/community/','/calendar/','/archive/','/artworks/','/resources/']);
+ for(const c of ['artists','news','pages','programs','events','archive'] as const)for(const {data:d} of await getCollection(c))used.add(`/${c}/${d.slug}/`);
+ for(const {data:e} of await getCollection('events'))used.add(`/calendar/${e.start.slice(0,7)}/`);
+ const out=[];for(const row of redirects){const u=new URL(row.sourceUrl);if(u.search||u.pathname==='/'||used.has(u.pathname)||u.pathname.includes('/wp-content/'))continue;used.add(u.pathname);out.push({params:{legacy:decodeURIComponent(u.pathname.replace(/^\/|\/$/g,''))},props:{target:row.target}});}return out;
+}const {target}=Astro.props;const href=localUrl(target);
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="robots" content="noindex"/><meta http-equiv="refresh" content={`0;url=${href}`}/><title>Page moved · Guild of Harwich Artists</title><link rel="canonical" href={new URL(href,Astro.site)}/></head><body><p>This page has moved. <a href={href}>Continue to the preserved content</a>.</p></body></html>

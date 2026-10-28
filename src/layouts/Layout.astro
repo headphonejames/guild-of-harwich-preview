@@ -1,15 +1,16 @@
 ---
+import {loadSettings} from '../data/content';
 import {localUrl} from '../data/urls';
 import '../styles/global.css';
 const {title='Art & community on Cape Cod',description='Discover original art, local artists and a welcoming creative community at the Guild of Harwich Artists.'}=Astro.props;
-const links=[['/artists/','The artists'],['/visit/','Visit the gallery'],['/community/','What’s happening'],['/join/','Our Guild']];
+const settings=await loadSettings();const links=settings.navigation.map(n=>[n.path,n.label]);
 ---
 <!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="robots" content="noindex, nofollow"/><title>{title} · Guild of Harwich Artists</title><link rel="icon" type="image/svg+xml" href={localUrl('/favicon.svg')}/></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="topline"><span>HARWICH PORT, CAPE COD</span><span>FOR ART & THE COMMUNITY SINCE 1979</span></div>
 <header class="header wrap"><a class="brand" href={localUrl('/')} aria-label="Guild of Harwich Artists home"><span class="brand-seal" aria-hidden="true">G<span>1979</span></span><span>Guild of<br/><strong>Harwich Artists</strong></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button><nav id="navigation" aria-label="Main navigation">{links.map(([href,label])=><a href={localUrl(href)} aria-current={Astro.url.pathname.startsWith(localUrl(href))?'page':undefined}>{label}</a>)}<a class="nav-cta" href={localUrl('/join/#membership')}>Become a member <span aria-hidden="true">↗</span></a></nav></header>
 <main id="main"><slot/></main>
-<footer><div class="wrap footer-grid"><div><a class="footer-brand" href={localUrl('/')}>Art brings us together.</a><p>The Guild of Harwich Artists<br/>For art and the community since 1979.</p></div><div><h2>Come find us</h2><p>551 Main Street (Route 28)<br/>Harwich Port, MA 02646</p><a href="tel:+15084321012">(508) 432-1012</a></div><div><h2>Stay connected</h2><a href="mailto:info@guildofharwichartists.org">Email the Guild ↗</a><br/><a href="https://us10.campaign-archive.com/home/?u=14ef2ddf3b610021d8e2bdcd5&id=ae4d146f39">Newsletter archive ↗</a><br/><a href="https://guildofharwichartists.org/contact/">Contact & inquiries ↗</a></div></div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} Guild of Harwich Artists. Artwork © respective artists.</span><span>Design preview · Public content reviewed October 27, 2026</span></div></footer>
+<footer><div class="wrap footer-grid"><div><a class="footer-brand" href={localUrl('/')}>Art brings us together.</a><p>The Guild of Harwich Artists<br/>For art and the community since 1979.</p></div><div><h2>Come find us</h2><p>{settings.address}</p><a href={`tel:${settings.phone.replace(/[^+0-9]/g,'')}`}>{settings.phone}</a></div><div><h2>Stay connected</h2><a href={`mailto:${settings.email}`}>Email the Guild ↗</a><br/><a href="https://us10.campaign-archive.com/home/?u=14ef2ddf3b610021d8e2bdcd5&id=ae4d146f39">Newsletter archive ↗</a><br/><a href={localUrl('/archive/')}>Complete content archive →</a><br/><a href={localUrl('/resources/')}>Documents and downloads →</a><br/><a href={`mailto:${settings.email}`}>Contact & inquiries ↗</a></div></div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} Guild of Harwich Artists. Artwork © respective artists.</span><span>Design preview · Public content imported October 28, 2026</span></div></footer>
 <script>
 const toggle=document.querySelector<HTMLButtonElement>('.menu-toggle');
 const nav=document.querySelector<HTMLElement>('#navigation');

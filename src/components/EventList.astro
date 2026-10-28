@@ -1,0 +1,4 @@
+---
+import {localUrl} from '../data/urls';const {events}=Astro.props;
+---
+<div class="archive-grid">{events.map((e:any)=><article><p class="eyebrow">{e.start.slice(0,10)} · {e.timezone}</p><h3><a href={localUrl(`/events/${e.slug}/`)}>{e.title}</a></h3><p>{e.venue} · {e.allDay?'All day':`${e.start.slice(11,16)}–${e.end.slice(11,16)}`}</p><a class="text-link" href={localUrl(`/events/${e.slug}/`)}>Event details →</a></article>)}</div>{!events.length&&<p>No reviewed events are listed for this period.</p>}

@@ -1,0 +1,4 @@
+---
+import Layout from '../../layouts/Layout.astro';import {getCollection} from 'astro:content';import {localUrl} from '../../data/urls';const works=(await getCollection('artworks')).filter(w=>w.data.status==='published').map(w=>w.data);
+---
+<Layout title="Artwork catalogue"><section class="wrap page-intro"><h1>Artwork catalogue</h1><p>Works with explicit artist attribution in the source. Additional artwork and profile galleries remain in the artist biographies and content archive.</p></section><section class="wrap section artist-grid">{works.map(w=><figure><img src={localUrl(w.image)} alt={w.alt}/><figcaption><h2>{w.title}</h2><p>{w.caption}</p><p>{w.medium} {w.dimensions}</p><a class="text-link" href={localUrl(`/artists/${w.artist}/`)}>Artist profile →</a></figcaption></figure>)}</section></Layout>

@@ -1,0 +1,4 @@
+---
+import Layout from '../../layouts/Layout.astro';import {getCollection} from 'astro:content';import {localUrl} from '../../data/urls';const files=(await getCollection('resources')).filter(x=>['published','archived'].includes(x.data.status)).map(x=>x.data).sort((a,b)=>a.title.localeCompare(b.title));
+---
+<Layout title="Documents and downloads"><section class="wrap page-intro"><h1>Documents and downloads</h1><p>Public documents and media preserved from the source library. Historical applications, calendars and guidelines may have been superseded; confirm current requirements with the Guild.</p></section><section class="wrap section"><ul class="archive-directory">{files.map(f=><li><a href={localUrl(f.file)}>{f.title}</a><small>{f.mimeType} · {f.status==='archived'?'Historical source file':'Published'}</small>{f.description&&<p>{f.description}</p>}</li>)}</ul></section></Layout>

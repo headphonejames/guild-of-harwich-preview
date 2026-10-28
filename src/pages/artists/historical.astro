@@ -1,0 +1,4 @@
+---
+import Layout from '../../layouts/Layout.astro';import {loadArtistProfiles} from '../../data/content';import {localUrl} from '../../data/urls';const artists=(await loadArtistProfiles()).filter(a=>a.status==='archived');
+---
+<Layout title="Historical and unverified artist biographies"><section class="wrap page-intro"><h1>More Guild biographies</h1><p>These {artists.length} public biographies were not linked in the source’s current gallery menu. They are preserved without assuming current membership.</p></section><section class="wrap section"><ul class="archive-directory">{artists.map(a=><li><a href={localUrl(`/artists/${a.slug}/`)}>{a.name}</a></li>)}</ul></section></Layout>

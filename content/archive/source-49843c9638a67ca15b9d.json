@@ -1,0 +1,31 @@
+{
+  "title": "Artist’s Profile Form",
+  "slug": "source-49843c9638a67ca15b9d",
+  "status": "published",
+  "paragraphs": [],
+  "excerpt": "",
+  "seoTitle": "",
+  "seoDescription": "",
+  "sourceId": "wp-5673",
+  "sourceUrl": "https://guildofharwichartists.org/artists-profile-form/",
+  "sourceFetchedAt": "2026-10-28T00:52:50.328211+00:00",
+  "bodyHtml": "\n\n\t\n\t\t\n\n\t\t<div class=\"entry-content\">\n\t\t\t<p>The application below should take about 10 to 15 minutes to complete. You will need two image files ready to upload to your application; one head-shot and one feature image.</p>\n\n<div class=\"wpcf7 no-js\" id=\"wpcf7-f4853-p5673-o1\" lang=\"en-US\" dir=\"ltr\">\n<div class=\"screen-reader-response\"><p role=\"status\"></p> <ul></ul></div>\n<p data-fidelity-note=\"form\">Archived form: submission is not available on this page.</p><div class=\"wpcf7-form init\" aria-label=\"Contact form\" data-source-form=\"disabled\">\n\n\n<p> Your Name (required)<br />\n<span class=\"wpcf7-form-control-wrap\"><input class=\"wpcf7-form-control wpcf7-text wpcf7-validates-as-required\" type=\"text\" disabled=\"disabled\" /></span> \n</p>\n<p> Your Email (required)<br />\n<span class=\"wpcf7-form-control-wrap\"><input class=\"wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email\" type=\"email\" disabled=\"disabled\" /></span> \n</p>\n<p> What is your Artist Name?<br />\n<span class=\"wpcf7-form-control-wrap\"><input class=\"wpcf7-form-control wpcf7-text\" type=\"text\" disabled=\"disabled\" /></span> \n</p>\n<p> Biography 200 words or less.<br />\n<span class=\"wpcf7-form-control-wrap\"><textarea rows=\"10\" class=\"wpcf7-form-control wpcf7-textarea\" disabled=\"disabled\"></textarea></span> \n</p>\n<p>use_label_element Tell us about your participation in the Guild. Select all that apply:<br />\n<span class=\"wpcf7-form-control-wrap\"><span class=\"wpcf7-form-control wpcf7-checkbox\"><span class=\"wpcf7-list-item first\"><input type=\"checkbox\" value=\"Art Gallery\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">Art Gallery</span></span><span class=\"wpcf7-list-item\"><input type=\"checkbox\" value=\"Art in the Park\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">Art in the Park</span></span><span class=\"wpcf7-list-item\"><input type=\"checkbox\" value=\"ArtWeek\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">ArtWeek</span></span><span class=\"wpcf7-list-item\"><input type=\"checkbox\" value=\"Bank Shows\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">Bank Shows</span></span><span class=\"wpcf7-list-item\"><input type=\"checkbox\" value=\"Board Member\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">Board Member</span></span><span class=\"wpcf7-list-item\"><input type=\"checkbox\" value=\"Committee Chair\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">Committee Chair</span></span><span class=\"wpcf7-list-item\"><input type=\"checkbox\" value=\"Paint the Town\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">Paint the Town</span></span><span class=\"wpcf7-list-item last\"><input type=\"checkbox\" value=\"Other\" disabled=\"disabled\" /><span class=\"wpcf7-list-item-label\">Other</span></span></span></span><br />\n Attach Profile Headshot Picture<br />\n<span class=\"wpcf7-form-control-wrap\"><input class=\"wpcf7-form-control wpcf7-file\" type=\"file\" disabled=\"disabled\" /></span> \n</p>\n<p> Attach Artwork Image<br />\n<span class=\"wpcf7-form-control-wrap\"><input class=\"wpcf7-form-control wpcf7-file\" type=\"file\" disabled=\"disabled\" /></span> \n</p>\n<p> Where do you show your artwork?<br />\n<span class=\"wpcf7-form-control-wrap\"><input class=\"wpcf7-form-control wpcf7-text\" type=\"text\" disabled=\"disabled\" /></span> \n</p>\n<p> What is your website?<br />\n<span class=\"wpcf7-form-control-wrap\"><input class=\"wpcf7-form-control wpcf7-text\" type=\"text\" disabled=\"disabled\" /></span> \n</p>\n<p><input class=\"wpcf7-form-control wpcf7-submit has-spinner\" type=\"submit\" value=\"Send\" disabled=\"disabled\" />\n</p><p class=\"akismet-fields-container\">Δ<textarea rows=\"8\" disabled=\"disabled\"></textarea>\n</p><div class=\"wpcf7-response-output\"></div>\n</div>\n</div>\n\n\n\n\t\t\t\t\t</div>\n\n\t\t<footer class=\"entry-footer\">\n\t\t\t\t\t</footer>\n\n\t\n",
+  "provenanceId": "source-49843c9638a67ca15b9d",
+  "kind": "page",
+  "originalTitle": "Artist’s Profile Form",
+  "originalPublishedAt": "2021-03-07T17:35:25",
+  "sourceIds": [
+    "wp-5673"
+  ],
+  "wpIds": [
+    5673
+  ],
+  "primaryPath": "",
+  "qualification": "Archived public source content",
+  "issues": [],
+  "functionalGaps": [
+    {
+      "type": "form-submission"
+    }
+  ]
+}

@@ -1,10 +1,17 @@
-export const source = 'https://guildofharwichartists.org';
-export const artists = [
- {slug:'chris-banks',name:'Chris Banks',work:'Path to the Sound',medium:'24 × 30 inches',image:'/images/banks.jpeg',alt:'A sandy path through flowering dunes leads to the blue sea in Chris Banks’ Path to the Sound.',bio:'Chris Banks began studying decorative art in 1978 and joined the Guild after moving to Harwich in 2002. Her practice includes oils, acrylics and watercolor, alongside a long history of teaching and serving the local arts community.',source:source+'/chris-banks/'},
- {slug:'larry-folding',name:'Larry Folding',work:'Winter Warmth',medium:'Watercolor',image:'/images/folding.jpg',alt:'Sunlight falls through dark trees onto snow in Larry Folding’s watercolor Winter Warmth.',bio:'Larry Folding completed his first watercolor in 1965. His training includes a three-year extension course at Rhode Island School of Design and workshops with watercolor artists in New England and Europe. He is a signature member of the New England Watercolor Society.',source:source+'/larry-folding/'},
- {slug:'martha-little-fuentes',name:'Martha Little Fuentes',work:'Ernesto',medium:'Figurative painting',image:'/images/fuentes.jpeg',alt:'Ernesto, a figurative painting by Martha Little Fuentes.',bio:'Martha Little Fuentes explores emotion through expression and gesture. She graduated from Vesper George School of Art in Boston and studied fine art at Bella’s Artes and the Instituto Allende in Mexico. Her work is featured at the Guild’s Art Gallery.',source:source+'/martha-little-fuentes/'}
-];
-export const news = [
- {date:'August 25, 2026',title:'Art for Good: Larry Folding’s watercolor auction',text:'The Guild announced an August 31 silent auction at Doane Park, with part of the proceeds benefiting the Harwich Family Pantry.',href:source+'/silent-auction-of-award-winning-watercolor-artist-larry-folding/'},
- {date:'July 1, 2026',title:'Art-in-the-Park returns to Doane Park',text:'A summer tradition brings original art and local artists together in the heart of Harwich Port.',href:source+'/guilds-art-in-the-park-launches-2026-season/'}
-];
+import {getCollection} from 'astro:content';
+export const source='';
+export const published=(r:any)=>r.data.status==='published';
+export async function loadArtists(){
+ const works=(await getCollection('artworks')).filter(published).map(x=>x.data);
+ return (await getCollection('artists')).filter(published).filter(({data:a})=>a.directoryStatus!=='unlisted').map(({data:a})=>{
+ const related=works.filter(w=>w.artist===a.slug||a.artworks.includes(w.slug));
+ const images=[...a.images,...related.filter(w=>!a.images.some(i=>i.localPath===w.image)).map(w=>({localPath:w.image,alt:w.alt,caption:w.caption||w.title}))];
+ return {...a,images,related,name:a.title,bio:a.paragraphs.join('\n\n'),source:a.sourceUrl,image:images[0]?.localPath??null,alt:images[0]?.alt||`Image from ${a.title}’s profile`,work:images[0]?.caption||'',medium:''};
+ }).sort((a,b)=>a.name.localeCompare(b.name));
+}
+export async function loadNews(){return (await getCollection('news')).filter(published).map(({data:n})=>({...n,date:new Date((n.publishedAt||'1970-01-01').slice(0,10)+'T12:00:00Z').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}),text:n.excerpt||n.paragraphs[0]||'',href:`/news/${n.slug}/`})).sort((a,b)=>(b.publishedAt??'').localeCompare(a.publishedAt??''));}
+export async function loadPage(slug:string){const page=(await getCollection('pages')).find(p=>p.data.slug===slug&&published(p));if(!page)throw new Error(`Missing published page: ${slug}`);return page.data;}
+export async function loadEvents(){return (await getCollection('events')).filter(published).map(e=>e.data).filter(e=>e.scheduleQuality!=='needs-review'&&!e.issues.length).sort((a,b)=>a.start.localeCompare(b.start));}
+export async function loadSettings(){return (await getCollection('settings')).find(x=>x.id==='site')!.data;}
+
+export async function loadArtistProfiles(){const current=await loadArtists();const archived=(await getCollection('artists')).filter(x=>x.data.status==='archived').map(({data:a})=>({...a,name:a.title,related:[],source:a.sourceUrl}));return [...current,...archived];}

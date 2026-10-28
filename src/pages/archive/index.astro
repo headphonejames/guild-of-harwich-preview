@@ -1,0 +1,9 @@
+---
+import {getCollection} from 'astro:content';import Layout from '../../layouts/Layout.astro';import {localUrl} from '../../data/urls';const records=(await getCollection('archive')).map(x=>x.data).sort((a,b)=>a.title.localeCompare(b.title));const kinds=[...new Set(records.map(r=>r.kind))].sort();
+---
+<Layout title="Complete Guild content archive"><section class="wrap page-intro"><p class="eyebrow">THE GUILD’S PUBLIC RECORD</p><h1>Content archive</h1><p>Original public pages, biographies, events, attachments and indexes. Historical or unverified records are preserved here, separately from current listings.</p><label for="archive-search">Search titles</label><input id="archive-search" type="search"/><label for="archive-kind">Content type</label><select id="archive-kind"><option value="">All types</option>{kinds.map(k=><option value={k}>{k.replaceAll('-',' ')}</option>)}</select><p id="archive-count" aria-live="polite">{records.length} records</p></section><section class="wrap section"><ul class="archive-directory">{records.map(r=><li data-archive-title={r.title.toLowerCase()} data-kind={r.kind}><a href={localUrl(`/archive/${r.slug}/`)}>{r.title}</a><small>{r.kind.replaceAll('-',' ')}</small></li>)}</ul></section></Layout>
+<script>
+const q=document.querySelector<HTMLInputElement>('#archive-search')!;const kind=document.querySelector<HTMLSelectElement>('#archive-kind')!;const rows=[...document.querySelectorAll<HTMLElement>('[data-archive-title]')];const count=document.querySelector('#archive-count')!;
+const initial=new URLSearchParams(location.search).get('kind');if(initial)kind.value=initial;
+const filter=()=>{let n=0;for(const r of rows){r.hidden=!(r.dataset.archiveTitle!.includes(q.value.toLowerCase())&&(!kind.value||r.dataset.kind===kind.value));if(!r.hidden)n++;}count.textContent=`${n} records`;};q.addEventListener('input',filter);kind.addEventListener('change',filter);filter();
+</script>

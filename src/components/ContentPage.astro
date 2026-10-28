@@ -1,0 +1,7 @@
+---
+import {localUrl} from '../data/urls';
+import RichContent from './RichContent.astro';
+import Layout from '../layouts/Layout.astro';
+const {item,preview=false}=Astro.props;
+---
+<Layout title={item.seoTitle||item.title} description={item.seoDescription||item.excerpt||undefined}><article class="wrap page-intro article">{preview&&<p class="eyebrow">LOCAL PREVIEW · {item.status} · Not deployed</p>}<h1>{item.title}</h1>{!item.bodyHtml&&item.image&&<figure><img src={localUrl(item.image)} alt={item.alt||item.title}/>{item.caption&&<figcaption>{item.caption}</figcaption>}</figure>}{!item.bodyHtml&&item.images?.map((i:any)=><figure><img src={localUrl(i.localPath)} alt={i.alt||item.title}/>{i.caption&&<figcaption>{i.caption}</figcaption>}</figure>)}{item.start&&<p>{item.start} – {item.end} · {item.timezone}</p>}{item.file&&<p><a class="text-link" href={localUrl(item.file)}>Open document or media →</a></p>}<RichContent html={item.bodyHtml} paragraphs={item.paragraphs}/></article></Layout>

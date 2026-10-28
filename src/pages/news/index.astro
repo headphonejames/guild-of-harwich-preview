@@ -1,0 +1,5 @@
+---
+import Layout from '../../layouts/Layout.astro';import {loadNews} from '../../data/content';import {localUrl} from '../../data/urls';
+const news=await loadNews();
+---
+<Layout title="Guild news archive"><section class="wrap page-intro"><p class="eyebrow">STORIES FROM OUR COMMUNITY</p><h1>From the<br/><em>Guild’s archive.</em></h1><p class="lede">{news.length} published stories from the Guild. Dates refer to the original publication; past event announcements are archived news.</p></section><section class="wrap section archive-grid">{news.map(n=><article><p class="eyebrow">{n.date} · ARCHIVE</p><h2><a href={localUrl(n.href)}>{n.title}</a></h2><p>{n.text.slice(0,240)}{n.text.length>240?'…':''}</p><a class="text-link" href={localUrl(n.href)}>Read story →</a></article>)}</section></Layout>
